@@ -1,0 +1,52 @@
+plugins {
+    id "org.springframework.boot" version "$spring_version"
+    id "io.spring.dependency-management" version "$spring_dependency_management_version"
+    id "java"
+    id "io.freefair.lombok" version "$lombok_plugin_version"
+    id "com.diffplug.spotless" version "$spotless_plugin_version"            // code formatter
+    id "com.github.ben-manes.versions" version "$dep_versions_plugin_version"       // check for new dependencies versions
+}
+
+group = "com.marqusm"
+sourceCompatibility = "14"
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+test {
+    useJUnitPlatform()
+}
+
+dependencies {
+    implementation("org.springframework.boot:spring-boot-starter-aop")
+    implementation("org.springframework.boot:spring-boot-starter-security")
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-validation")
+    implementation("org.flywaydb:flyway-core:$flyway_version")
+    implementation("org.postgresql:postgresql:$postgres_version")
+    implementation("javax.validation:validation-api:$validation_api_version")
+    implementation("io.jsonwebtoken:jjwt:$jwt_token_version")
+    implementation("com.google.guava:guava:$guava_version")
+    implementation("ch.qos.logback:logback-classic:$logback_version")
+    implementation("org.zalando:logbook-spring-boot-starter:$logbook_version")
+    implementation("jakarta.xml.bind:jakarta.xml.bind-api:2.3.3")
+    implementation("org.glassfish.jaxb:jaxb-runtime:2.3.3")
+
+    testImplementation("org.hamcrest:hamcrest:$hamcrest_version")
+    testImplementation("org.hamcrest:hamcrest-core:$hamcrest_version")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.springframework.security:spring-security-test")
+    testImplementation("org.testcontainers:junit-jupiter:$test_containers_version")
+    testImplementation("org.testcontainers:postgresql:$test_containers_version")
+    testImplementation("io.rest-assured:rest-assured:$rest_assured_version")
+    testImplementation("io.rest-assured:json-path:$rest_assured_version")
+    testImplementation "io.rest-assured:xml-path:$rest_assured_version"
+
+}

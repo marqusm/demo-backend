@@ -1,0 +1,14 @@
+spring:
+  jackson:
+    default-property-inclusion: NON_NULL
+
+database:
+  host: localhost
+  port: 5432
+  name: demo_backend
+  username: postgres
+  password: postgres
+
+security:
+  jwt:
+    secret: GcN@wM/59]RIVwVy;X*%:7Zt*fBz6{{2dgY}s,NZ41'u<?B$'LQ|bH;s+j2F7}m8z?N|o0Aii~80neC}!qf#1-`$#?M77X\=n3&=nR6xZ.;=2so\tmq%r"MStWY.wXBA

@@ -1,0 +1,14 @@
+version: '3'
+services:
+
+  postgres:
+    container_name: demo-backend-postgres
+    image: postgres:12.3
+    restart: always
+    stop_signal: SIGINT
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=demo_backend
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
